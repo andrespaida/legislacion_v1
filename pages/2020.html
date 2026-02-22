@@ -197,7 +197,7 @@
 
             .gov-grid {
                 display: grid;
-                grid-template-columns: repeat(3, 1fr);
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
                 gap: 15px;
                 margin-bottom: 30px;
             }
@@ -208,20 +208,26 @@
                 padding: 15px;
                 border-radius: 10px;
                 text-align: center;
-                transition: transform 0.2s;
+                transition: all 0.3s ease;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
             }
 
             .component-card:hover {
                 transform: translateY(-3px);
                 border-color: #2563eb;
+                background-color: #f0f7ff;
             }
 
             .comp-name {
                 display: block;
-                font-size: 12px;
+                font-size: 11px;
                 font-weight: 700;
                 color: #64748b;
-                margin-bottom: 5px;
+                margin-bottom: 8px;
+                text-transform: uppercase;
+                line-height: 1.3;
             }
 
             .comp-val {
@@ -236,14 +242,16 @@
                 border-radius: 15px;
                 text-align: center;
                 border: 1px dashed #cbd5e1;
+                margin-bottom: 25px;
             }
 
             .formula-display {
                 font-family: 'Courier New', monospace;
-                font-size: 18px;
-                margin: 15px 0;
+                font-size: 17px;
+                margin: 10px 0;
                 color: #0f172a;
                 font-weight: bold;
+                word-break: break-all;
             }
 
             .result-tag {
@@ -254,22 +262,47 @@
                 border-radius: 50px;
                 font-size: 22px;
                 font-weight: 800;
-                margin-top: 10px;
+                margin-top: 15px;
                 box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
             }
 
             .source-footer {
-                margin-top: 25px;
-                font-size: 12px;
-                color: #94a3b8;
+                border-top: 1px solid #f1f5f9;
+                padding-top: 20px;
                 display: flex;
-                justify-content: space-between;
+                flex-direction: column;
+                gap: 12px;
             }
 
-            .source-footer span {
-                background: #f1f5f9;
-                padding: 4px 10px;
-                border-radius: 4px;
+            .footer-group {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+
+            .footer-text {
+                font-size: 14px;
+                color: #555;
+                flex: 1;
+            }
+
+            .btn-gov {
+                background-color: #2563eb;
+                color: white;
+                border: none;
+                padding: 6px 14px;
+                border-radius: 6px;
+                cursor: pointer;
+                font-size: 13px;
+                font-weight: 600;
+                transition: background 0.3s;
+                white-space: nowrap;
+            }
+
+            .btn-gov:hover {
+                background-color: #1d4ed8;
             }
         </style>
 
@@ -289,7 +322,7 @@
                 <span class="comp-val">0.8118</span>
             </div>
             <div class="component-card">
-                <span class="comp-name">TII - Índice de infraestructura de telecomunicaciones</span>
+                <span class="comp-name">TII - Índice de infraestructura telecomunicaciones</span>
                 <span class="comp-val">0.5133</span>
             </div>
             <div class="component-card">
@@ -299,8 +332,9 @@
         </div>
 
         <div class="calculation-box">
-            <p style="font-weight: 700; color: #64748b; font-size: 14px; text-transform: uppercase;">Cálculo del Índice
-            </p>
+            <p
+                style="font-weight: 700; color: #64748b; font-size: 13px; text-transform: uppercase; margin-bottom: 10px;">
+                Cálculo del Índice</p>
             <div class="formula-display">
                 GOV = (OSI + TII + HCI) / 3
             </div>
@@ -313,43 +347,21 @@
         </div>
 
         <div class="source-footer">
-            <span style="font-size:14px; color:#555;">
-                Fuente: Encuesta E-Gobierno 2020 (Pág. 269)
-            </span>
-            <button
-                onclick="window.open('https://drive.google.com/file/d/1xBQfgpAvtddHLItFLJMlEBNCFn3Nwi-3/view?usp=sharing', '_blank')"
-                style="
-    background-color:#2563eb;
-    color:white;
-    border:none;
-    padding:6px 12px;
-    margin-left:8px;
-    border-radius:6px;
-    cursor:pointer;
-    font-size:14px;
-  ">
-                Ver documento
-            </button>
+            <div class="footer-group">
+                <span class="footer-text">Fuente: Encuesta E-Gobierno 2020 (Pág. 269)</span>
+                <button class="btn-gov"
+                    onclick="window.open('https://drive.google.com/file/d/1xBQfgpAvtddHLItFLJMlEBNCFn3Nwi-3/view?usp=sharing', '_blank')">
+                    Ver documento
+                </button>
+            </div>
 
-            <br><br>
-
-            <span style="font-size:14px; color:#555;">
-                Fuente: Encuesta E-Gobierno 2020 (Pág. 84)
-            </span>
-            <button
-                onclick="window.open('https://drive.google.com/file/d/1xBQfgpAvtddHLItFLJMlEBNCFn3Nwi-3/view?usp=sharing', '_blank')"
-                style="
-    background-color:#2563eb;
-    color:white;
-    border:none;
-    padding:6px 12px;
-    margin-left:8px;
-    border-radius:6px;
-    cursor:pointer;
-    font-size:14px;
-  ">
-                Ver documento
-            </button>
+            <div class="footer-group">
+                <span class="footer-text">Fuente: Encuesta E-Gobierno 2020 (Pág. 84)</span>
+                <button class="btn-gov"
+                    onclick="window.open('https://drive.google.com/file/d/1xBQfgpAvtddHLItFLJMlEBNCFn3Nwi-3/view?usp=sharing', '_blank')">
+                    Ver documento
+                </button>
+            </div>
         </div>
     </section>
 
@@ -532,25 +544,25 @@
 
         <div class="acc-grid">
             <div class="acc-card">
-                <span class="name">IH - Hogares con acceso</span>
+                <span class="name">IH - Hogares con acceso a internet</span>
                 <span class="val">53.2% (0.532)</span>
             </div>
             <div class="acc-card">
-                <span class="name">UI - Usuarios internet</span>
+                <span class="name">UI - Usuarios que utilizan internet</span>
                 <span class="val">70.7% (0.707)</span>
             </div>
             <div class="acc-card">
-                <span class="name">CA - Celular activado</span>
+                <span class="name">CA - Personas que tienen celular activado</span>
                 <span class="val">62.9% (0.629)</span>
             </div>
             <div class="acc-card">
-                <span class="name">SP - Smartphone</span>
+                <span class="name">SP - Personas que tienen telefono inteligente</span>
                 <span class="val">51.5% (0.515)</span>
             </div>
             <div class="acc-card">
                 <span class="name">AD - Analfabetismo Digital</span>
                 <span class="val">10.2% (0.102)</span>
-                <span class="aptitud-note">Aptitud: 0.898</span>
+                <span class="aptitud-note">Alfabetismo Digital: 0.898</span>
             </div>
         </div>
 
@@ -563,7 +575,7 @@
                 ACC = (0.532 + 0.707 + 0.629 + 0.515 + 0.898) / 5
             </div>
             <div class="acc-result">
-                ACC: 0.6562
+                ACC: 0.656
             </div>
         </div>
 
@@ -584,6 +596,235 @@
             </div>
         </div>
     </section>
+
+    <section class="eco-section">
+    <style>
+        .eco-section {
+            font-family: 'Inter', 'Segoe UI', sans-serif;
+            background-color: #ffffff;
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 800px;
+            margin: 20px auto;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            border: 1px solid #f5f3ff;
+            color: #1e293b;
+        }
+
+        .eco-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 25px;
+            border-bottom: 2px solid #f5f3ff;
+            padding-bottom: 15px;
+        }
+
+        .eco-badge {
+            background-color: #ede9fe;
+            color: #7c3aed;
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        .eco-title {
+            font-size: 24px;
+            font-weight: 800;
+            color: #4c1d95;
+        }
+
+        .eco-description {
+            background-color: #f5f3ff;
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            border-left: 4px solid #8b5cf6;
+        }
+
+        .eco-description p {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #5b21b6;
+        }
+
+        .eco-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .eco-card {
+            background: #ffffff;
+            border: 1px solid #ddd6fe;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .eco-card:hover {
+            transform: translateY(-3px);
+            border-color: #8b5cf6;
+            background-color: #fcfaff;
+        }
+
+        .eco-name {
+            display: block;
+            font-size: 11px;
+            font-weight: 700;
+            color: #6d28d9;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+        }
+
+        .eco-val {
+            font-size: 16px;
+            font-weight: 800;
+            color: #7c3aed;
+        }
+
+        .eco-calc-box {
+            background: linear-gradient(135deg, #f5f3ff 0%, #ffffff 100%);
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            border: 1px dashed #a78bfa;
+            margin-bottom: 25px;
+        }
+
+        .eco-formula {
+            font-family: 'Courier New', monospace;
+            font-size: 16px;
+            margin: 10px 0;
+            color: #1e293b;
+            font-weight: bold;
+        }
+
+        .eco-result {
+            display: inline-block;
+            background: #7c3aed;
+            color: white;
+            padding: 10px 25px;
+            border-radius: 50px;
+            font-size: 22px;
+            font-weight: 800;
+            margin-top: 15px;
+            box-shadow: 0 4px 12px rgba(124, 58, 237, 0.2);
+        }
+
+        .eco-footer {
+            border-top: 1px solid #f1f5f9;
+            padding-top: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .footer-group {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .footer-text {
+            font-size: 13px;
+            color: #64748b;
+            flex: 1;
+        }
+
+        .btn-eco {
+            background-color: #7c3aed;
+            color: white;
+            border: none;
+            padding: 6px 14px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 13px;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+
+        .btn-eco:hover {
+            background-color: #6d28d9;
+        }
+    </style>
+
+    <div class="eco-header">
+        <span class="eco-badge">🟪</span>
+        <h2 class="eco-title">Economía Digital (ECO)</h2>
+    </div>
+
+    <div class="eco-description">
+        <p>Refleja el nivel de desarrollo del comercio electrónico, startups tecnológicas y la transformación digital empresarial en relación con el Producto Interno Bruto.</p>
+    </div>
+
+    <div class="eco-grid">
+        <div class="eco-card">
+            <span class="eco-name">IDE - Inversión Tecnológica Extranjera</span>
+            <span class="eco-val">3,57</span>
+        </div>
+        <div class="eco-card">
+            <span class="eco-name">VAB - Produccion Digital Interna</span>
+            <span class="eco-val">2310,19</span>
+        </div>
+        <div class="eco-card">
+            <span class="eco-name">EXP - Exportaciones del Sector Digital</span>
+            <span class="eco-val">82,49</span>
+        </div>
+        <div class="eco-card">
+            <span class="eco-name">PIB - Nominal Actual</span>
+            <span class="eco-val">107479,00</span>
+        </div>
+    </div>
+
+    <div class="eco-calc-box">
+        <p style="font-weight: 700; color: #6d28d9; font-size: 13px; text-transform: uppercase; margin-bottom: 10px;">Cálculo del Índice</p>
+        <div class="eco-formula">
+            ECO = (IDE + VAB + EXP) / PIB
+        </div>
+        <div class="eco-formula">
+            ECO = (3,57 + 2310,19 + 82,49) / 107479,00
+        </div>
+        <div class="eco-result">
+            ECO: 0.022294
+        </div>
+    </div>
+
+    <div class="eco-footer">
+        <div class="footer-group">
+            <span class="footer-text">Fuente: Documento por definir</span>
+            <button class="btn-eco" onclick="window.open('#', '_blank')">Ver documento</button>
+        </div>
+
+        <div class="footer-group">
+            <span class="footer-text">Fuente: IDE</span>
+            <button class="btn-eco" onclick="window.open('https://docs.google.com/spreadsheets/d/12bsOHB3041j9vmXKaCXATTvaW8Y6phaZ/edit?usp=sharing&ouid=104450803845954005247&rtpof=true&sd=true', '_blank')">Ver documento</button>
+        </div>
+
+        <div class="footer-group">
+            <span class="footer-text">Fuente: VAB</span>
+            <button class="btn-eco" onclick="window.open('https://docs.google.com/spreadsheets/d/1mFZx6EyN3BzJpWQPCBpKk48TTTCt-ray/edit?usp=sharing&ouid=104450803845954005247&rtpof=true&sd=true', '_blank')">Ver documento</button>
+        </div>
+
+        <div class="footer-group">
+            <span class="footer-text">Fuente: EXP</span>
+            <button class="btn-eco" onclick="window.open('https://docs.google.com/spreadsheets/d/157heg6roZY8jfhOpCkPJQsi1HdOJWm7W/edit?usp=sharing&ouid=104450803845954005247&rtpof=true&sd=true', '_blank')">Ver documento</button>
+        </div>
+
+        <div class="footer-group">
+            <span class="footer-text">Fuente: PIB Nominal Actual (INEC/BCE)</span>
+            <button class="btn-eco" onclick="window.open('https://contenido.bce.fin.ec/documentos/informacioneconomica/indicadores/real/PIBNominalAnual.html', '_blank')">Ver documento</button>
+        </div>
+    </div>
+</section>
 
     <footer class="footer">
         <strong>IDE-EC</strong> | Plataforma de Inteligencia Digital <br>
