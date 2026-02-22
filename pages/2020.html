@@ -598,233 +598,487 @@
     </section>
 
     <section class="eco-section">
-    <style>
-        .eco-section {
-            font-family: 'Inter', 'Segoe UI', sans-serif;
-            background-color: #ffffff;
-            border-radius: 20px;
-            padding: 40px;
-            max-width: 800px;
-            margin: 20px auto;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-            border: 1px solid #f5f3ff;
-            color: #1e293b;
-        }
+        <style>
+            .eco-section {
+                font-family: 'Inter', 'Segoe UI', sans-serif;
+                background-color: #ffffff;
+                border-radius: 20px;
+                padding: 40px;
+                max-width: 800px;
+                margin: 20px auto;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+                border: 1px solid #f5f3ff;
+                color: #1e293b;
+            }
 
-        .eco-header {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            margin-bottom: 25px;
-            border-bottom: 2px solid #f5f3ff;
-            padding-bottom: 15px;
-        }
+            .eco-header {
+                display: flex;
+                align-items: center;
+                gap: 15px;
+                margin-bottom: 25px;
+                border-bottom: 2px solid #f5f3ff;
+                padding-bottom: 15px;
+            }
 
-        .eco-badge {
-            background-color: #ede9fe;
-            color: #7c3aed;
-            padding: 8px 16px;
-            border-radius: 8px;
-            font-weight: 700;
-            font-size: 1.2rem;
-        }
+            .eco-badge {
+                background-color: #ede9fe;
+                color: #7c3aed;
+                padding: 8px 16px;
+                border-radius: 8px;
+                font-weight: 700;
+                font-size: 1.2rem;
+            }
 
-        .eco-title {
-            font-size: 24px;
-            font-weight: 800;
-            color: #4c1d95;
-        }
+            .eco-title {
+                font-size: 24px;
+                font-weight: 800;
+                color: #4c1d95;
+            }
 
-        .eco-description {
-            background-color: #f5f3ff;
-            padding: 20px;
-            border-radius: 12px;
-            margin-bottom: 30px;
-            border-left: 4px solid #8b5cf6;
-        }
+            .eco-description {
+                background-color: #f5f3ff;
+                padding: 20px;
+                border-radius: 12px;
+                margin-bottom: 30px;
+                border-left: 4px solid #8b5cf6;
+            }
 
-        .eco-description p {
-            font-size: 16px;
-            line-height: 1.6;
-            color: #5b21b6;
-        }
+            .eco-description p {
+                font-size: 16px;
+                line-height: 1.6;
+                color: #5b21b6;
+            }
 
-        .eco-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 15px;
-            margin-bottom: 30px;
-        }
+            .eco-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+                gap: 15px;
+                margin-bottom: 30px;
+            }
 
-        .eco-card {
-            background: #ffffff;
-            border: 1px solid #ddd6fe;
-            padding: 15px;
-            border-radius: 10px;
-            text-align: center;
-            transition: all 0.3s ease;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
+            .eco-card {
+                background: #ffffff;
+                border: 1px solid #ddd6fe;
+                padding: 15px;
+                border-radius: 10px;
+                text-align: center;
+                transition: all 0.3s ease;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+            }
 
-        .eco-card:hover {
-            transform: translateY(-3px);
-            border-color: #8b5cf6;
-            background-color: #fcfaff;
-        }
+            .eco-card:hover {
+                transform: translateY(-3px);
+                border-color: #8b5cf6;
+                background-color: #fcfaff;
+            }
 
-        .eco-name {
-            display: block;
-            font-size: 11px;
-            font-weight: 700;
-            color: #6d28d9;
-            margin-bottom: 8px;
-            text-transform: uppercase;
-        }
+            .eco-name {
+                display: block;
+                font-size: 11px;
+                font-weight: 700;
+                color: #6d28d9;
+                margin-bottom: 8px;
+                text-transform: uppercase;
+            }
 
-        .eco-val {
-            font-size: 16px;
-            font-weight: 800;
-            color: #7c3aed;
-        }
+            .eco-val {
+                font-size: 16px;
+                font-weight: 800;
+                color: #7c3aed;
+            }
 
-        .eco-calc-box {
-            background: linear-gradient(135deg, #f5f3ff 0%, #ffffff 100%);
-            padding: 25px;
-            border-radius: 15px;
-            text-align: center;
-            border: 1px dashed #a78bfa;
-            margin-bottom: 25px;
-        }
+            .eco-calc-box {
+                background: linear-gradient(135deg, #f5f3ff 0%, #ffffff 100%);
+                padding: 25px;
+                border-radius: 15px;
+                text-align: center;
+                border: 1px dashed #a78bfa;
+                margin-bottom: 25px;
+            }
 
-        .eco-formula {
-            font-family: 'Courier New', monospace;
-            font-size: 16px;
-            margin: 10px 0;
-            color: #1e293b;
-            font-weight: bold;
-        }
+            .eco-formula {
+                font-family: 'Courier New', monospace;
+                font-size: 16px;
+                margin: 10px 0;
+                color: #1e293b;
+                font-weight: bold;
+            }
 
-        .eco-result {
-            display: inline-block;
-            background: #7c3aed;
-            color: white;
-            padding: 10px 25px;
-            border-radius: 50px;
-            font-size: 22px;
-            font-weight: 800;
-            margin-top: 15px;
-            box-shadow: 0 4px 12px rgba(124, 58, 237, 0.2);
-        }
+            .eco-result {
+                display: inline-block;
+                background: #7c3aed;
+                color: white;
+                padding: 10px 25px;
+                border-radius: 50px;
+                font-size: 22px;
+                font-weight: 800;
+                margin-top: 15px;
+                box-shadow: 0 4px 12px rgba(124, 58, 237, 0.2);
+            }
 
-        .eco-footer {
-            border-top: 1px solid #f1f5f9;
-            padding-top: 20px;
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
+            .eco-footer {
+                border-top: 1px solid #f1f5f9;
+                padding-top: 20px;
+                display: flex;
+                flex-direction: column;
+                gap: 12px;
+            }
 
-        .footer-group {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
+            .footer-group {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                flex-wrap: wrap;
+                gap: 10px;
+            }
 
-        .footer-text {
-            font-size: 13px;
-            color: #64748b;
-            flex: 1;
-        }
+            .footer-text {
+                font-size: 13px;
+                color: #64748b;
+                flex: 1;
+            }
 
-        .btn-eco {
-            background-color: #7c3aed;
-            color: white;
-            border: none;
-            padding: 6px 14px;
-            border-radius: 6px;
-            cursor: pointer;
-            font-size: 13px;
-            font-weight: 600;
-            transition: background 0.3s;
-        }
+            .btn-eco {
+                background-color: #7c3aed;
+                color: white;
+                border: none;
+                padding: 6px 14px;
+                border-radius: 6px;
+                cursor: pointer;
+                font-size: 13px;
+                font-weight: 600;
+                transition: background 0.3s;
+            }
 
-        .btn-eco:hover {
-            background-color: #6d28d9;
-        }
-    </style>
+            .btn-eco:hover {
+                background-color: #6d28d9;
+            }
+        </style>
 
-    <div class="eco-header">
-        <span class="eco-badge">🟪</span>
-        <h2 class="eco-title">Economía Digital (ECO)</h2>
-    </div>
-
-    <div class="eco-description">
-        <p>Refleja el nivel de desarrollo del comercio electrónico, startups tecnológicas y la transformación digital empresarial en relación con el Producto Interno Bruto.</p>
-    </div>
-
-    <div class="eco-grid">
-        <div class="eco-card">
-            <span class="eco-name">IDE - Inversión Tecnológica Extranjera</span>
-            <span class="eco-val">3,57</span>
-        </div>
-        <div class="eco-card">
-            <span class="eco-name">VAB - Produccion Digital Interna</span>
-            <span class="eco-val">2310,19</span>
-        </div>
-        <div class="eco-card">
-            <span class="eco-name">EXP - Exportaciones del Sector Digital</span>
-            <span class="eco-val">82,49</span>
-        </div>
-        <div class="eco-card">
-            <span class="eco-name">PIB - Nominal Actual</span>
-            <span class="eco-val">107479,00</span>
-        </div>
-    </div>
-
-    <div class="eco-calc-box">
-        <p style="font-weight: 700; color: #6d28d9; font-size: 13px; text-transform: uppercase; margin-bottom: 10px;">Cálculo del Índice</p>
-        <div class="eco-formula">
-            ECO = (IDE + VAB + EXP) / PIB
-        </div>
-        <div class="eco-formula">
-            ECO = (3,57 + 2310,19 + 82,49) / 107479,00
-        </div>
-        <div class="eco-result">
-            ECO: 0.022294
-        </div>
-    </div>
-
-    <div class="eco-footer">
-        <div class="footer-group">
-            <span class="footer-text">Fuente: Documento por definir</span>
-            <button class="btn-eco" onclick="window.open('#', '_blank')">Ver documento</button>
+        <div class="eco-header">
+            <span class="eco-badge">🟪</span>
+            <h2 class="eco-title">Economía Digital (ECO)</h2>
         </div>
 
-        <div class="footer-group">
-            <span class="footer-text">Fuente: IDE</span>
-            <button class="btn-eco" onclick="window.open('https://docs.google.com/spreadsheets/d/12bsOHB3041j9vmXKaCXATTvaW8Y6phaZ/edit?usp=sharing&ouid=104450803845954005247&rtpof=true&sd=true', '_blank')">Ver documento</button>
+        <div class="eco-description">
+            <p>Refleja el nivel de desarrollo del comercio electrónico, startups tecnológicas y la transformación
+                digital empresarial en relación con el Producto Interno Bruto.</p>
         </div>
 
-        <div class="footer-group">
-            <span class="footer-text">Fuente: VAB</span>
-            <button class="btn-eco" onclick="window.open('https://docs.google.com/spreadsheets/d/1mFZx6EyN3BzJpWQPCBpKk48TTTCt-ray/edit?usp=sharing&ouid=104450803845954005247&rtpof=true&sd=true', '_blank')">Ver documento</button>
+        <div class="eco-grid">
+            <div class="eco-card">
+                <span class="eco-name">IDE - Inversión Tecnológica Extranjera</span>
+                <span class="eco-val">3,57</span>
+            </div>
+            <div class="eco-card">
+                <span class="eco-name">VAB - Produccion Digital Interna</span>
+                <span class="eco-val">2310,19</span>
+            </div>
+            <div class="eco-card">
+                <span class="eco-name">EXP - Exportaciones del Sector Digital</span>
+                <span class="eco-val">82,49</span>
+            </div>
+            <div class="eco-card">
+                <span class="eco-name">PIB - Nominal Actual</span>
+                <span class="eco-val">107479,00</span>
+            </div>
         </div>
 
-        <div class="footer-group">
-            <span class="footer-text">Fuente: EXP</span>
-            <button class="btn-eco" onclick="window.open('https://docs.google.com/spreadsheets/d/157heg6roZY8jfhOpCkPJQsi1HdOJWm7W/edit?usp=sharing&ouid=104450803845954005247&rtpof=true&sd=true', '_blank')">Ver documento</button>
+        <div class="eco-calc-box">
+            <p
+                style="font-weight: 700; color: #6d28d9; font-size: 13px; text-transform: uppercase; margin-bottom: 10px;">
+                Cálculo del Índice</p>
+            <div class="eco-formula">
+                ECO = (IDE + VAB + EXP) / PIB
+            </div>
+            <div class="eco-formula">
+                ECO = (3,57 + 2310,19 + 82,49) / 107479,00
+            </div>
+            <div class="eco-result">
+                ECO: 0.022294
+            </div>
         </div>
 
-        <div class="footer-group">
-            <span class="footer-text">Fuente: PIB Nominal Actual (INEC/BCE)</span>
-            <button class="btn-eco" onclick="window.open('https://contenido.bce.fin.ec/documentos/informacioneconomica/indicadores/real/PIBNominalAnual.html', '_blank')">Ver documento</button>
+        <div class="eco-footer">
+            <div class="footer-group">
+                <span class="footer-text">Fuente: Documento por definir</span>
+                <button class="btn-eco" onclick="window.open('#', '_blank')">Ver documento</button>
+            </div>
+
+            <div class="footer-group">
+                <span class="footer-text">Fuente: IDE</span>
+                <button class="btn-eco"
+                    onclick="window.open('https://docs.google.com/spreadsheets/d/12bsOHB3041j9vmXKaCXATTvaW8Y6phaZ/edit?usp=sharing&ouid=104450803845954005247&rtpof=true&sd=true', '_blank')">Ver
+                    documento</button>
+            </div>
+
+            <div class="footer-group">
+                <span class="footer-text">Fuente: VAB</span>
+                <button class="btn-eco"
+                    onclick="window.open('https://docs.google.com/spreadsheets/d/1mFZx6EyN3BzJpWQPCBpKk48TTTCt-ray/edit?usp=sharing&ouid=104450803845954005247&rtpof=true&sd=true', '_blank')">Ver
+                    documento</button>
+            </div>
+
+            <div class="footer-group">
+                <span class="footer-text">Fuente: EXP</span>
+                <button class="btn-eco"
+                    onclick="window.open('https://docs.google.com/spreadsheets/d/157heg6roZY8jfhOpCkPJQsi1HdOJWm7W/edit?usp=sharing&ouid=104450803845954005247&rtpof=true&sd=true', '_blank')">Ver
+                    documento</button>
+            </div>
+
+            <div class="footer-group">
+                <span class="footer-text">Fuente: PIB Nominal Actual (INEC/BCE)</span>
+                <button class="btn-eco"
+                    onclick="window.open('https://contenido.bce.fin.ec/documentos/informacioneconomica/indicadores/real/PIBNominalAnual.html', '_blank')">Ver
+                    documento</button>
+            </div>
         </div>
-    </div>
-</section>
+    </section>
+    <section class="pay-section">
+        <style>
+            .pay-section {
+                font-family: 'Inter', 'Segoe UI', sans-serif;
+                background-color: #ffffff;
+                border-radius: 20px;
+                padding: 40px;
+                max-width: 800px;
+                margin: 20px auto;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+                border: 1px solid #fff7ed;
+                color: #1e293b;
+            }
+
+            .pay-header {
+                display: flex;
+                align-items: center;
+                gap: 15px;
+                margin-bottom: 25px;
+                border-bottom: 2px solid #fff7ed;
+                padding-bottom: 15px;
+            }
+
+            .pay-badge {
+                background-color: #ffedd5;
+                color: #ea580c;
+                padding: 8px 16px;
+                border-radius: 8px;
+                font-weight: 700;
+                font-size: 1.2rem;
+            }
+
+            .pay-title {
+                font-size: 24px;
+                font-weight: 800;
+                color: #9a3412;
+            }
+
+            .pay-description {
+                background-color: #fff7ed;
+                padding: 20px;
+                border-radius: 12px;
+                margin-bottom: 30px;
+                border-left: 4px solid #f97316;
+            }
+
+            .pay-description p {
+                font-size: 16px;
+                line-height: 1.6;
+                color: #7c2d12;
+            }
+
+            .pay-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+                gap: 15px;
+                margin-bottom: 30px;
+            }
+
+            .pay-card {
+                background: #ffffff;
+                border: 1px solid #fed7aa;
+                padding: 15px;
+                border-radius: 10px;
+                text-align: center;
+                transition: all 0.3s ease;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+            }
+
+            .pay-card:hover {
+                transform: translateY(-3px);
+                border-color: #f97316;
+                background-color: #fffaf5;
+            }
+
+            .pay-name {
+                display: block;
+                font-size: 11px;
+                font-weight: 700;
+                color: #c2410c;
+                margin-bottom: 8px;
+                text-transform: uppercase;
+            }
+
+            .pay-val {
+                font-size: 16px;
+                font-weight: 800;
+                color: #ea580c;
+            }
+
+            .pay-detail {
+                font-size: 10px;
+                color: #9a3412;
+                margin-top: 5px;
+                opacity: 0.8;
+            }
+
+            .pay-calc-box {
+                background: linear-gradient(135deg, #fffaf5 0%, #ffffff 100%);
+                padding: 25px;
+                border-radius: 15px;
+                text-align: center;
+                border: 1px dashed #fb923c;
+                margin-bottom: 25px;
+            }
+
+            .pay-formula {
+                font-family: 'Courier New', monospace;
+                font-size: 16px;
+                margin: 10px 0;
+                color: #1e293b;
+                font-weight: bold;
+            }
+
+            .pay-result {
+                display: inline-block;
+                background: #ea580c;
+                color: white;
+                padding: 10px 25px;
+                border-radius: 50px;
+                font-size: 22px;
+                font-weight: 800;
+                margin-top: 15px;
+                box-shadow: 0 4px 12px rgba(234, 88, 12, 0.2);
+            }
+
+            .pay-footer {
+                border-top: 1px solid #f1f5f9;
+                padding-top: 20px;
+                display: flex;
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            .footer-group {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+
+            .footer-text {
+                font-size: 13px;
+                color: #64748b;
+                flex: 1;
+            }
+
+            .btn-pay {
+                background-color: #ea580c;
+                color: white;
+                border: none;
+                padding: 6px 14px;
+                border-radius: 6px;
+                cursor: pointer;
+                font-size: 13px;
+                font-weight: 600;
+                transition: background 0.3s;
+            }
+
+            .btn-pay:hover {
+                background-color: #c2410c;
+            }
+        </style>
+
+        <div class="pay-header">
+            <span class="pay-badge">🟧</span>
+            <h2 class="pay-title">Pagos Digitales (PAY)</h2>
+        </div>
+
+        <div class="pay-description">
+            <p>Analiza la adopción de medios de pago digitales y el avance hacia una economía sin efectivo (cashless),
+                considerando la sustitución digital frente al uso de efectivo.</p>
+        </div>
+
+        <div class="pay-grid">
+            <div class="pay-card">
+                <span class="pay-name">GD - Sistema de Pagos Interbancarios / PIB</span>
+                <span class="pay-val">(GD) 115,37 - (GDnorm) 0.514</span>
+                <span class="pay-detail">Grado de Desarrollo de los Medios de Pago Electrónicos</span>
+            </div>
+            <div class="pay-card">
+                <span class="pay-name">ISD - POS / POS + Retiros </span>
+                <span class="pay-val">0.186826</span>
+                <span class="pay-detail">Índice de Sustitución Digital</span>
+            </div>
+            <div class="pay-card">
+                <span class="pay-name">POS</span>
+                <span class="pay-val">7.848.015,62M</span>
+                <span class="pay-detail">Puntos de Venta Electrónicos</span>
+            </div>
+            <div class="pay-card">
+                <span class="pay-name">Retiros</span>
+                <span class="pay-val">34.159.135,84M</span>
+                <span class="pay-detail">Retiros de Dinero en Efectivo</span>
+            </div>
+        </div>
+
+        <div class="pay-calc-box">
+            <p
+                style="font-weight: 700; color: #c2410c; font-size: 13px; text-transform: uppercase; margin-bottom: 10px;">
+                Cálculo del Índice</p>
+            <div class="pay-formula">
+                PAY = (GDnorm + ISD) / 2
+            </div>
+            <div class="pay-formula">
+                PAY = (0.514 + 0.186826) / 2
+            </div>
+            <div class="pay-result">
+                PAY: 0.3504
+            </div>
+        </div>
+
+        <div class="pay-footer">
+            <div class="footer-group">
+                <span class="footer-text">Fuente: Documento por definir</span>
+                <button class="btn-pay" onclick="window.open('#', '_blank')">Ver documento</button>
+            </div>
+
+            <div class="footer-group">
+                <span class="footer-text">Fuente: GD</span>
+                <button class="btn-pay" onclick="window.open('https://contenido.bce.fin.ec/documentos/informacioneconomica/MediosPago/ix_MediosPagoPrin.html#', '_blank')">Ver documento</button>
+            </div>
+
+             <div class="footer-group">
+                <span class="footer-text">Fuente: GDnorm</span>
+                <button class="btn-pay" onclick="window.open('https://docs.google.com/document/d/12xD2d5nyogxFunBCYGp7J3QrY9R_SJHC/edit?usp=sharing&ouid=104450803845954005247&rtpof=true&sd=true', '_blank')">Ver documento</button>
+            </div>
+
+             <div class="footer-group">
+                <span class="footer-text">Fuente: POS</span>
+                <button class="btn-pay" onclick="window.open('https://docs.google.com/spreadsheets/d/1GjFyAxPZq_F1V_GAvPJiLGOU4r-Sl4Bj/edit?usp=sharing&ouid=104450803845954005247&rtpof=true&sd=true', '_blank')">Ver documento</button>
+            </div>
+
+             <div class="footer-group">
+                <span class="footer-text">Fuente: Retiros</span>
+                <button class="btn-pay" onclick="window.open('https://docs.google.com/spreadsheets/d/1YhajnOx9_ng48d892aTg6WYPbuWeMAdd/edit?usp=sharing&ouid=104450803845954005247&rtpof=true&sd=true', '_blank')">Ver documento</button>
+            </div>
+        </div>
+    </section>
+
 
     <footer class="footer">
         <strong>IDE-EC</strong> | Plataforma de Inteligencia Digital <br>
