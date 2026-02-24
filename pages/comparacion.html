@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digitalización en Ecuador - E-Government Survey</title>
+    <style>
+        :root {
+            --primary-color: #003366;
+            --accent-color: #007bff;
+            --bg-color: #f4f7f9;
+            --bar-bg: #e0e0e0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            width: 90%;
+            max-width: 600px;
+        }
+
+        h1 {
+            text-align: center;
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .chart-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .bar-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .label {
+            font-weight: bold;
+            margin-bottom: 5px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .bar-wrapper {
+            background-color: var(--bar-bg);
+            border-radius: 8px;
+            height: 25px;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .bar {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+            width: 0%; /* Empieza en 0 para la animación */
+            transition: width 1.5s cubic-bezier(0.1, 0.42, 0.41, 1);
+            border-radius: 8px;
+        }
+
+        .info-text {
+            margin-top: 2rem;
+            font-size: 0.9rem;
+            color: #666;
+            text-align: center;
+            border-top: 1px solid #ddd;
+            padding-top: 1rem;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Progreso Digital Ecuador 2020 - 2025</h1>
+    
+    <div class="chart-container">
+        
+        <div class="bar-group">
+            <div class="label">
+                <span>2020</span>
+                <span>46.52%</span>
+            </div>
+            <div class="bar-wrapper">
+                <div class="bar" data-width="46.52%"></div>
+            </div>
+        </div>
+
+        <div class="bar-group">
+            <div class="label">
+                <span>2021</span>
+                <span>58.09%</span>
+            </div>
+            <div class="bar-wrapper">
+                <div class="bar" data-width="58.09%"></div>
+            </div>
+        </div>
+
+        <div class="bar-group">
+            <div class="label">
+                <span>2022</span>
+                <span>51.61%</span>
+            </div>
+            <div class="bar-wrapper">
+                <div class="bar" data-width="51.61%"></div>
+            </div>
+        </div>
+
+        <div class="bar-group">
+            <div class="label">
+                <span>2023</span>
+                <span>59.06%</span>
+            </div>
+            <div class="bar-wrapper">
+                <div class="bar" data-width="59.06%" style="background: #28a745;"></div>
+            </div>
+        </div>
+
+        <div class="bar-group">
+            <div class="label">
+                <span>2024</span>
+                <span>75.38%</span>
+            </div>
+            <div class="bar-wrapper">
+                <div class="bar" data-width="75.38%" style="background: #d46db6;"></div>
+            </div>
+        </div>
+
+        <div class="bar-group">
+            <div class="label">
+                <span>2025</span>
+                <span>74.27%</span>
+            </div>
+            <div class="bar-wrapper">
+                <div class="bar" data-width="74.27%" style="background: #ec5b41;"></div>
+            </div>
+        </div>
+
+    </div>
+
+    <p class="info-text">
+        Digitalización en Ecuador 2024. <br>
+    </p>
+</div>
+
+<script>
+    // Este pequeño script hace que las barras se carguen visualmente al abrir el documento
+    window.onload = function() {
+        const bars = document.querySelectorAll('.bar');
+        bars.forEach(bar => {
+            const percentage = bar.getAttribute('data-width');
+            bar.style.width = percentage;
+        });
+    };
+</script>
+
+</body>
+</html>
